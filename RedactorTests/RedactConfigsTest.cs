@@ -1,4 +1,5 @@
 ﻿using System;
+using JuliaHayward.Redactor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JuliaHayward.RedactorTests
@@ -9,6 +10,9 @@ namespace JuliaHayward.RedactorTests
         [TestMethod]
         public void RedactConfigs_ProcessTestFolder()
         {
+            var c = new RedactConfigsCommand();
+            c.Name = new[] {@"C:\temp"};
+            var output = c.Invoke().GetEnumerator();
         }
     }
 }

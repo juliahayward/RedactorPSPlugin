@@ -20,6 +20,11 @@ namespace JuliaHayward.Redactor
 
         private string[] folderNames;
 
+        public void FOo()
+        {
+            ProcessRecord();
+        }
+
         protected override void ProcessRecord()
         {
             var extensions = new[] {"config", "settings"};
@@ -28,13 +33,13 @@ namespace JuliaHayward.Redactor
                 var files = Directory.GetFiles(name).Where(x => extensions.Any(x.ToLower().EndsWith)).ToList();
                 foreach (var file in files)
                 {
-                    WriteVerbose("Redacting " + name);
+                    WriteVerbose("Redacting " + file);
                     var fileContents = System.IO.File.ReadAllText(file);
 
                     foreach (var token in TokenDictionary.RedactionTokens.Keys)
                         fileContents = fileContents.Replace(token, TokenDictionary.RedactionTokens[token]);
 
-                    System.IO.File.WriteAllText(name, fileContents);
+                    System.IO.File.WriteAllText(file, fileContents);
                 }
             }
         }
