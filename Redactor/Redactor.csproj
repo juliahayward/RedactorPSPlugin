@@ -7,8 +7,8 @@
     <ProjectGuid>{AB257CC2-0B7E-49D4-92BA-A7D9EE857D03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>cmdlet</RootNamespace>
-    <AssemblyName>cmdlet</AssemblyName>
+    <RootNamespace>JuliaHayward.Redactor</RootNamespace>
+    <AssemblyName>JuliaHayward.Redactor</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -47,6 +50,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedactFileCommand.cs" />
+    <Compile Include="RedactorPSSnapIn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TokenDictionary.cs" />
+    <Compile Include="UnredactFileCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
