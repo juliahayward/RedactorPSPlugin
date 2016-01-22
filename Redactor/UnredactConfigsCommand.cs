@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace JuliaHayward.Redactor
 {
-    [Cmdlet("Redact", "Configs")]
-    public class RedactConfigsCommand : Cmdlet
+    [Cmdlet("Unredact", "Configs")]
+    public class UnredactConfigsCommand : Cmdlet
     {
-        [Parameter(Position = 0, Mandatory = true, HelpMessage = "Name of folder to redact")]
+        [Parameter(Position = 0, Mandatory = true, HelpMessage = "Name of folder to unredact")]
         public string[] Name
         {
             get { return folderNames; }
@@ -25,17 +25,17 @@ namespace JuliaHayward.Redactor
             var dict = new TokenDictionary();
             dict.Load();
 
-            var extensions = new[] {"config", "settings"};
+            var extensions = new[] { "config", "settings", "designer.cs" };
             foreach (string name in folderNames)
             {
                 var files = Directory.GetFiles(name).Where(x => extensions.Any(x.ToLower().EndsWith)).ToList();
                 foreach (var file in files)
                 {
-                    WriteVerbose("Redacting " + file);
+                    WriteVerbose("Unredacting " + file);
                     var fileContents = System.IO.File.ReadAllText(file);
 
-                    foreach (var token in dict.RedactionTokens.Keys)
-                        fileContents = fileContents.Replace(token, dict.RedactionTokens[token]);
+                    foreach (var token in dict.UnredactionTokens.Keys)
+                        fileContents = fileContents.Replace(token, dict.UnredactionTokens[token]);
 
                     System.IO.File.WriteAllText(file, fileContents);
                 }
