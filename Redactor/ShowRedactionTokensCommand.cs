@@ -14,9 +14,9 @@ namespace JuliaHayward.Redactor
             var dict = new TokenDictionary();
             dict.Load();
 
-            foreach (var key in dict.UnredactionTokens.Keys.OrderBy(x => x))
+            foreach (var token in dict.UnredactionTokens.OrderBy(x => x.Key))
             {
-                WriteObject(key);
+                WriteObject(token);
             }
         }
     }
