@@ -19,8 +19,9 @@ namespace JuliaHayward.RedactorTests
 
             var dict2 = new TokenDictionary();
             dict2.Load();
-            Assert.AreEqual(dict2.RedactionTokens["foo"], "bar");
-
+            Assert.AreEqual(1, dict2.RedactionTokens.Count());
+            Assert.AreEqual(1, dict2.UnredactionTokens.Count());
+            Assert.AreEqual("bar", dict2.RedactionTokens["foo"]);
         }
     }
 }

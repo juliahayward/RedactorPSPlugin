@@ -48,7 +48,7 @@ namespace JuliaHayward.Redactor
         {
             get
             {
-                return "This is a PowerShell snap-in that helps you redact and restore configuration files.";
+                return "This is a PowerShell snap-in that redacts and restores configuration files.";
             }
         }
     }

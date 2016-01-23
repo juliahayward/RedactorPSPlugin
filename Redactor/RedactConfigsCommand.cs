@@ -28,7 +28,8 @@ namespace JuliaHayward.Redactor
             var extensions = new[] {"config", "settings"};
             foreach (string name in folderNames)
             {
-                var files = Directory.GetFiles(name).Where(x => extensions.Any(x.ToLower().EndsWith)).ToList();
+                var files = Directory.GetFiles(name, "*.*", SearchOption.AllDirectories)
+                    .Where(x => extensions.Any(x.ToLower().EndsWith)).ToList();
                 foreach (var file in files)
                 {
                     WriteVerbose("Redacting " + file);

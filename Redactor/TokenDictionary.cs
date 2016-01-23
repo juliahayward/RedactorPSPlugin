@@ -7,9 +7,7 @@ namespace JuliaHayward.Redactor
 {
     public class Token
     {
-        [XmlAttribute]
         public string RawForm;
-        [XmlAttribute]
         public string RedactedForm;
     }
 
@@ -24,14 +22,15 @@ namespace JuliaHayward.Redactor
 
         public void Add(string raw, string redacted)
         {
-            tokens.Add(raw, redacted);
+            tokens.Add(raw, "**REDACTED" + redacted + "**");
         }
 
         public void Load()
         {
-            if (File.Exists(@"C:\Users\jhayward\AppData\Local\Redactor\tokens.xml"))
+            // Same directory as assembly
+            if (File.Exists(@"C:\Program Files\julia\Redactor\tokens.xml"))
             {
-                using (var stream = new FileStream(@"C:\Users\jhayward\AppData\Local\Redactor\tokens.xml",
+                using (var stream = new FileStream(@"C:\Program Files\julia\Redactor\tokens.xml",
                     FileMode.Open, FileAccess.Read))
                 {
                     var serializer = new XmlSerializer(typeof(Token[]),
@@ -45,9 +44,7 @@ namespace JuliaHayward.Redactor
 
         public void Save()
         {
-            Directory.CreateDirectory(@"C:\Users\jhayward\AppData\Local\Redactor");
-
-            using (var stream = new FileStream(@"C:\Users\jhayward\AppData\Local\Redactor\tokens.xml",
+            using (var stream = new FileStream(@"C:\Program Files\julia\Redactor\tokens.xml",
                     FileMode.OpenOrCreate, FileAccess.Write))
             {
                 var serializer = new XmlSerializer(typeof(Token[]),

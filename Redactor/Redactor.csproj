@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddRedactionTokenCommand.cs" />
+    <Compile Include="ClearRedactionTokensCommand.cs" />
+    <Compile Include="ShowRedactionTokensCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedactConfigsCommand.cs" />
     <Compile Include="RedactFileCommand.cs" />

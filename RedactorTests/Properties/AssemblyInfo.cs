@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RedactorTests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Tests for a PowerShell cmdlet for redacting configuration files")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RedactorTests")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Julia Hayward julia@juliahayward.com")]
+[assembly: AssemblyProduct("Redactor")]
+[assembly: AssemblyCopyright("Copyright © Julia Hayward 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
