@@ -11,4 +11,4 @@ Usage:
 * ```Redact-Configs (path)``` - recurses down the given folder, redacting all ```.config``` and ```.settings``` files.
 * ```Unredact-File (path)``` - restores a single file to its working state
 * ```Unredact-Configs (path)``` - recurses down the given folder, restoring all ```.config``` and ```.settings``` files.
-* 
+
