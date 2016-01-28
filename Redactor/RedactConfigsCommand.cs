@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JuliaHayward.Redactor
 {
@@ -19,7 +15,7 @@ namespace JuliaHayward.Redactor
             var dict = new TokenDictionary();
             dict.Load();
 
-            var extensions = new[] {"config", "settings"};
+            var extensions = new[] {"config", "settings", "designer.cs"};
             foreach (string name in Name)
             {
                 var files = Directory.GetFiles(name, "*.*", SearchOption.AllDirectories)

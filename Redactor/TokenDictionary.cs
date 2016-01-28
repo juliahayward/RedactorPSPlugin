@@ -27,7 +27,7 @@ namespace JuliaHayward.Redactor
 
         public void Load()
         {
-            // Same directory as assembly
+            // Temporarily hard coded
             if (File.Exists(@"C:\Program Files\julia\Redactor\tokens.xml"))
             {
                 using (var stream = new FileStream(@"C:\Program Files\julia\Redactor\tokens.xml",
