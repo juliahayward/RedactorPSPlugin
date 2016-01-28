@@ -33,12 +33,12 @@ namespace JuliaHayward.Redactor
                 foreach (var file in files)
                 {
                     WriteVerbose("Unredacting " + file);
-                    var fileContents = System.IO.File.ReadAllText(file);
+                    var fileContents = File.ReadAllText(file);
 
                     foreach (var token in dict.UnredactionTokens.Keys)
                         fileContents = fileContents.Replace(token, dict.UnredactionTokens[token]);
 
-                    System.IO.File.WriteAllText(file, fileContents);
+                    File.WriteAllText(file, fileContents);
                 }
             }
         }

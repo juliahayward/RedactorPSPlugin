@@ -1,4 +1,5 @@
-﻿using System.Management.Automation;
+﻿using System.IO;
+using System.Management.Automation;
 
 
 namespace JuliaHayward.Redactor
@@ -23,12 +24,12 @@ namespace JuliaHayward.Redactor
             foreach (string name in fileNames)
             {
                 WriteVerbose("Unredacting " + name);
-                var fileContents = System.IO.File.ReadAllText(name);
+                var fileContents = File.ReadAllText(name);
 
                 foreach (var token in dict.UnredactionTokens.Keys)
                     fileContents = fileContents.Replace(token, dict.UnredactionTokens[token]);
 
-                System.IO.File.WriteAllText(name, fileContents);
+                File.WriteAllText(name, fileContents);
 
             }
         }
