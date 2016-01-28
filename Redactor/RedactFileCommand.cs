@@ -8,20 +8,14 @@ namespace JuliaHayward.Redactor
     public class RedactFileCommand : Cmdlet
     {
         [Parameter(Position = 0, Mandatory=true, HelpMessage = "Name of file(s) to redact")]
-        public string[] Name
-        {
-            get { return fileNames; }
-            set { fileNames = value; }
-        }
-
-        private string[] fileNames;
+        public string[] Name { get; set; }
 
         protected override void ProcessRecord()
         {
             var dict = new TokenDictionary();
             dict.Load();
 
-            foreach (string name in fileNames)
+            foreach (string name in Name)
             {
                 WriteVerbose("Redacting " + name);
                 var fileContents = File.ReadAllText(name);
