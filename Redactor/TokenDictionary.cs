@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml.Serialization;
 
 namespace JuliaHayward.Redactor
@@ -28,9 +29,9 @@ namespace JuliaHayward.Redactor
         public void Load()
         {
             // Temporarily hard coded
-            if (File.Exists(@"C:\Program Files\julia\Redactor\tokens.xml"))
+            if (File.Exists(TokenStorePath))
             {
-                using (var stream = new FileStream(@"C:\Program Files\julia\Redactor\tokens.xml",
+                using (var stream = new FileStream(TokenStorePath,
                     FileMode.Open, FileAccess.Read))
                 {
                     var serializer = new XmlSerializer(typeof(Token[]),
@@ -44,7 +45,7 @@ namespace JuliaHayward.Redactor
 
         public void Save()
         {
-            using (var stream = new FileStream(@"C:\Program Files\julia\Redactor\tokens.xml",
+            using (var stream = new FileStream(TokenStorePath,
                     FileMode.OpenOrCreate, FileAccess.Write))
             {
                 var serializer = new XmlSerializer(typeof(Token[]),
@@ -55,6 +56,13 @@ namespace JuliaHayward.Redactor
             }
         }
 
+        public string TokenStorePath
+        {
+            get
+            {
+                return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\tokens.xml";
+            }
+        }
         
         public Dictionary<string, string> RedactionTokens
         {

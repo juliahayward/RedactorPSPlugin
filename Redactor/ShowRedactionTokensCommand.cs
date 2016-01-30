@@ -13,6 +13,7 @@ namespace JuliaHayward.Redactor
         {
             var dict = new TokenDictionary();
             dict.Load();
+            WriteVerbose("Tokens stored in " + dict.TokenStorePath);
 
             foreach (var token in dict.UnredactionTokens.OrderBy(x => x.Key))
             {

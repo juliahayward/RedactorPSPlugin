@@ -4,3 +4,5 @@ Redactor/obj/
 RedactorTests/obj/
 RedactorTests/bin/
 .vs/Redactor/v14/.suo
+TestResults/Redactor.TE.Tests.mdf
+TestResults/Redactor.TE.Tests_log.ldf
