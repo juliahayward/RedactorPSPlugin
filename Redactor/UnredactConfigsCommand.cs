@@ -15,7 +15,7 @@ namespace JuliaHayward.Redactor
             var dict = new TokenDictionary();
             dict.Load();
 
-            var extensions = new[] { "config", "settings", "designer.cs" };
+            var extensions = new[] { "config", "settings", "designer.cs", ".dbml" };
             foreach (string name in Name)
             {
                 var files = Directory.GetFiles(name, "*.*", SearchOption.AllDirectories)
