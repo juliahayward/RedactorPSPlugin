@@ -1,4 +1,4 @@
-# RedactorPSPlugin
+# RedactorPSSnapin
 
 A simple Powershell snapin that provides commands to redact configuration files, making them safe for Github
 public repositories. We don't want those black-hats seeing live Amazon keys, database passwords and the like!
